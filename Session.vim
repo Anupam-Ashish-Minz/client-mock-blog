@@ -7,16 +7,17 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +13 src/App.js
+badd +1 src/App.js
 badd +5 src/components/Home.js
 badd +11 src/components/About.js
 badd +16 src/components/Articles.js
 badd +36 package.json
-badd +1 src/App.test.js
+badd +4 src/App.test.js
+badd +9 src/routes/Articles.js
 argglobal
 %argdel
 $argadd ./
-edit src/App.test.js
+edit src/routes/Articles.js
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -34,12 +35,34 @@ setlocal fdl=9
 setlocal fml=1
 setlocal fdn=5
 setlocal fen
-let s:l = 4 - ((1 * winheight(0) + 11) / 22)
+5
+normal! zo
+13
+normal! zo
+17
+normal! zo
+21
+normal! zo
+22
+normal! zo
+24
+normal! zo
+37
+normal! zo
+47
+normal! zo
+47
+normal! zo
+53
+normal! zo
+54
+normal! zo
+let s:l = 17 - ((0 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+17
+normal! 03|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

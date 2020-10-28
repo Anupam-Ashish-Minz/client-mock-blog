@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import About from './routes/About';
-import Articles from './routes/Articles';
+import { ArticlesList, Article } from './routes/Articles';
 import Navbar from './components/Navbar';
 
 import './App.css';
 
 function App() {
+  const [data, setData] = useState();
+  const shareData = (returnedData) => {
+    setData(returnedData);
+  }
+  
   return (
     <div>
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/articles">
-            <Articles />
+          <Route exact path="/articles">
+            <ArticlesList shareData={shareData} />
+          </Route>
+
+          <Route exact path="/articles/:id" >
+            <Article data={data} />
           </Route>
 
           <Route exact path="/about">
