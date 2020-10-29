@@ -1,6 +1,25 @@
 .navbar-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  background-color: black;
+  height: 2em;
 }
 
+.navbar-container:hover {
+  /*background-color: grey;*/
+}
+
+.navbar-items {
+  text-decoration: none;
+  color: #D0D0D0;
+  background-color: black;
+  flex-grow: 1;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.navbar-items:hover {
+  color: white;
+}
