@@ -1,9 +1,12 @@
 .navbar-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: black;
-  height: 2em;
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  background-color: #141414;
+  height: 2.4em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .navbar-container:hover {
@@ -13,7 +16,6 @@
 .navbar-items {
   text-decoration: none;
   color: #D0D0D0;
-  background-color: black;
   flex-grow: 1;
   display: grid;
   justify-content: center;
@@ -22,4 +24,6 @@
 
 .navbar-items:hover {
   color: white;
+  background-color: black;
 }
+

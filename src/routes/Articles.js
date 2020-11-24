@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ReactLoading from 'react-loading';
 import { Link, useParams } from 'react-router-dom';
+import './Articles.css';
 
-const ArticlesList = ({shareData}) => {
-  const [dataFromDb, setDataFromDb] = useState(null);
+const ArticlesList = ({cachedData, shareData}) => {
+  const [dataFromDb, setDataFromDb] = useState(cachedData);
   const fetchData = () => {
+    console.log(dataFromDb)
     fetch('/api/articles-list')
       .then(data => data.json())
       .then(data => setDataFromDb(data));
   }
 
   useEffect(()=>{
-    fetchData();
+    if(dataFromDb === null) {
+      fetchData();
+    }
   }, []);
 
   useEffect(() => {
@@ -19,13 +23,14 @@ const ArticlesList = ({shareData}) => {
   }, [dataFromDb]);
 
   return (
-    <div>
+    <div className="article-list-component">
       {dataFromDb ?
         <>
+          <h1>List of articles</h1>
           {dataFromDb.map((elem, index) =>
           <Link to={`/articles/${elem._id}`} className="article-shards" key={index} >
-            <h1>{elem.title} : {elem._id}</h1>
-            <p>{elem.author}</p>
+            <h2>{index+1}. {elem.title}</h2>
+            <h4>{elem.body[0].slice(0, 60)}...</h4>
           </Link>
           )}
         </>

@@ -9,7 +9,9 @@ import './App.css';
 
 function App() {
   const [data, setData] = useState();
+  const [cacheData, setCacheData] = useState(null);
   const shareData = (returnedData) => {
+    setCacheData(returnedData);
     setData(returnedData);
   }
   
@@ -19,7 +21,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/articles">
-            <ArticlesList shareData={shareData} />
+            <ArticlesList shareData={shareData} cachedData={cacheData} />
           </Route>
 
           <Route exact path="/articles/:id" >
