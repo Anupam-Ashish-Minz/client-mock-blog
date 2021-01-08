@@ -13,17 +13,18 @@ badd +11 src/components/About.js
 badd +16 src/components/Articles.js
 badd +36 package.json
 badd +4 src/App.test.js
-badd +71 src/routes/Articles.js
+badd +1 src/routes/Articles.js
 badd +1 src/components/Navbar.js
 badd +10 src/App.css
 badd +1 src/routes/Home.js
 badd +2 src/components/Navbar.css
 badd +3 src/routes/Articles.css
-badd +0 output:///snippets
+badd +1 output:///snippets
+badd +7 src/routes/About.js
 argglobal
 %argdel
 $argadd ./
-edit src/routes/Articles.js
+edit src/App.js
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -41,36 +42,14 @@ setlocal fdl=9
 setlocal fml=1
 setlocal fdn=5
 setlocal fen
-6
+10
 normal! zo
-15
-normal! zo
-15
-normal! zo
-21
-normal! zo
-25
-normal! zo
-26
-normal! zo
-28
-normal! zo
-42
-normal! zo
-52
-normal! zo
-52
-normal! zo
-58
-normal! zo
-59
-normal! zo
-let s:l = 69 - ((34 * winheight(0) + 20) / 41)
+let s:l = 46 - ((21 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-69
-normal! 0
+46
+normal! 03|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

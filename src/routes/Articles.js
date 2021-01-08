@@ -6,7 +6,6 @@ import './Articles.css';
 const ArticlesList = ({cachedData, shareData}) => {
   const [dataFromDb, setDataFromDb] = useState(cachedData);
   const fetchData = () => {
-    console.log(dataFromDb)
     fetch('/api/articles-list')
       .then(data => data.json())
       .then(data => setDataFromDb(data));
